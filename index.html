@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel='stylesheet' type='text/css' href='assets/font-awesome-4.6.3/css/font-awesome.css'>
+<title>Music player</title>
+<script>
+	function playSongOne() {
+		document.querySelector('img').src = "media/Alborosie_2_Times_Revolution_(2011).jpg";
+		document.querySelector('p').innerHTML = "Alborosie - 2 Times Revolution (2011)";
+		document.getElementById('mysong').src = 'media/Alborosie_11._Ragamuffin.mp3';
+		document.getElementById('mysong').play();
+	}
+    function playSongTwo() {
+    	document.querySelector('img').src = "media/Beastie_Boys_-_ILL_Communication_Front.jpg";
+    	document.querySelector('p').innerHTML = "Beastie Boys - ILL Communication Front";
+    	document.getElementById('mysong').src = 'media/Beastie_Boys_-_06_-_Sabotage.mp3';
+		document.getElementById('mysong').play();
+    }
+    function playSongThree() {
+    	document.querySelector('img').src = "media/Chase_And_Status_No_More_Idols.jpg";
+    	document.querySelector('p').innerHTML = "Chase And Status - No More Idols";
+    	document.getElementById('mysong').src = 'media/Cahse_And_Status-06_Hypest_Hype.mp3';
+		document.getElementById('mysong').play();
+    }
+    function playSongFour() {
+    	document.querySelector('img').src = "media/Dope_D.O.D.jpg";
+    	document.querySelector('p').innerHTML = "Dope D.O.D. - Deal With The Devil";
+    	document.getElementById('mysong').src = 'media/Dope_D.O.D._-_Deal_With_The_Devil.mp3';
+		document.getElementById('mysong').play();
+    }
+    function prevSong () {
+    	var x = document.querySelector('p').innerHTML;
+    	if (x == "Beastie Boys - ILL Communication Front") {
+    		playSongOne();
+    	} else if (x == "Chase And Status - No More Idols") {
+    		playSongTwo();
+    	} else if (x == "Dope D.O.D. - Deal With The Devil") {
+    		playSongThree();
+    	}  	
+    }
+    function nextSong() {
+    	var y = document.querySelector('p').innerHTML;
+    	if (y == "Alborosie - 2 Times Revolution (2011)") {
+    		playSongTwo();
+    	} else if (y == "Beastie Boys - ILL Communication Front") {
+        	playSongThree();
+    	} else if (y == "Chase And Status - No More Idols") {
+    		playSongFour();
+    	} 
+    }
+    function pauseSong () {
+    	document.getElementById('mysong').pause();
+    }
+</script>
+<style>
+    header {
+        background-color:rgb(0, 113, 181);
+        color:white;
+        width:80%;
+        height: 60px;
+        margin-left:10%;
+        text-align:center;
+        font-family: Georgia, Serif;
+        font-style:oblique;
+    }    
+    header i {
+        float:left;
+        padding: 10px;
+    }
+    header h1 {
+        padding-top:10px;
+        font:Elephant Italic;
+        padding-right:10px;
+    }
+    #song {
+        width:80%;
+        height: 400px;
+        margin-left:10%;
+        border:1px solid blue;
+        margin-top:30px;
+    }
+    #list {
+        width:70%;
+        height: 168px;
+        margin-left:15%;
+        border:1px solid grey;
+        margin-top:30px;
+    }
+    #songpic {
+        background-color:rgb(75, 67, 67);
+        height:250px;
+    }
+    img {
+        display:block;
+        margin:auto;
+    }
+    #songname {
+        height:40px;
+        color:rgb(0, 113, 181);
+        padding-left:20px;
+    }
+    #musicload {
+        border: 1px solid rgb(0, 113, 181);
+        height:30px;
+    }
+    .fa-chevron-left {
+        clear:both;
+        padding-left:40%;
+    }
+    div i {
+        padding-top: 15px;
+        padding-left:10px;
+        
+    }
+    .playlist {
+        border: 1px solid grey;
+        height:40px;
+        padding-left:10px;
+    }
+    .fa-play {
+        margin-right:20px;
+    }
+    div p, span {
+        font-family: Arial, Helvetica, sans-serif;
+        span:left;
+    }
+    span {
+        float:left;
+        padding-top:12px;
+    }
+    .fa-play {
+    	float:right;
+    }
+    #timer span {
+    	color:rgb(0, 113, 181);
+    	font-size: 170%;
+    }
+    audio { 
+   		display:none;
+	}
+
+</style>
+</head>
+<body>
+    <header>
+        <i class="fa fa-music fa-2x" aria-hidden="true"></i>
+        <h1>Musecloud</h1>
+    </header>
+    <div id='song'>
+        <div id='songpic'>
+            <img alt="song" src="media/Alborosie_2_Times_Revolution_(2011).jpg" height='250px'>
+            <audio></audio>
+        </div>
+        <div id='songname'>
+            <p>Alborosie - 2 Times Revolution (2011)</p>
+            <audio id='mysong'></audio>
+        </div>
+        <div id='musicload'>
+            
+        </div>
+        <div id='timer'>
+            <span style="float:left; padding-left: 20px;">01:17</span>
+            <i class="fa fa-chevron-left fa-2x" aria-hidden="true" style='color: rgb(0, 113, 181)' onclick="prevSong();"></i>
+            <i class="fa fa-pause fa-2x" aria-hidden="true" style='color: rgb(0, 113, 181)' onclick="pauseSong();"></i>
+            <i class="fa fa-chevron-right fa-2x" aria-hidden="true" style='color: rgb(0, 113, 181)' onclick="nextSong();"></i>
+            <span style="float:right; padding-right: 20px;">03:30</span>
+        </div>
+    </div>    
+    <div id="list">
+        <div class="playlist">
+            <span>1. Alborosie - 2 Times Revolution (2011)</span>
+            <i class="fa fa-play" aria-hidden="true" onclick="playSongOne();"></i>        
+        </div>
+        <div class="playlist">
+            <span>2. Beastie Boys - ILL Communication Front</span>
+            <i class="fa fa-play" aria-hidden="true" onclick="playSongTwo();"></i>            
+        </div>
+        <div class="playlist">
+            <span>3. Chase And Status - No More Idols</span>
+            <i class="fa fa-play" aria-hidden="true" onclick="playSongThree();"></i>
+        </div>
+        <div class="playlist">
+            <span>4. Dope D.O.D. - Deal With The Devil</span>
+            <i class="fa fa-play" aria-hidden="true" onclick="playSongFour();"></i>
+        </div>
+    </div>
+</body>
+</html>
